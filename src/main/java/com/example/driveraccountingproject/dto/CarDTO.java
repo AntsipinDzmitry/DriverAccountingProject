@@ -15,6 +15,9 @@ public class CarDTO {
     private Long id;
     private String vin;
     private String stateNumber;
+    private String ManufacturerName;
+    private String brand;
+    private int yearOfManufacture;
 
     @PastOrPresent
     private LocalDateTime created;

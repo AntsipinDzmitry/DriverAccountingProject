@@ -22,13 +22,15 @@ public class Car {
     private Long id;
     private String vin;
     private String stateNumber;
-
+    private String ManufacturerName;
+    private String brand;
+    private int yearOfManufacture;
     @CreationTimestamp
     private LocalDateTime created;
     @CreationTimestamp
     private LocalDateTime updated;
 
-    @OneToMany(mappedBy = "part", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Part> parts = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
