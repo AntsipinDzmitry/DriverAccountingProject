@@ -40,7 +40,7 @@ public class DriverServiceTests {
     }
 
     @Test
-    public void testCreateDriver() {
+    public void DriverService_CreateDriver_ReturnDriverDTO() {
 
         DriverDTO driverDTO = new DriverDTO();
         driverDTO.setId(1L);
@@ -67,7 +67,7 @@ public class DriverServiceTests {
     }
 
     @Test
-    public void testGetDriverById() {
+    public void DriverService_GetDriverById_ReturnDriverDTO() {
 
         Long driverId = 1L;
         String fullName = "John Doe";
@@ -86,7 +86,7 @@ public class DriverServiceTests {
     }
 
     @Test
-    public void testGetDriverById_ThrowsDriverNotFoundException() {
+    public void DriverService_GetDriverById_ThrowsDriverNotFoundException() {
 
         Long driverId = 1L;
 
@@ -96,7 +96,7 @@ public class DriverServiceTests {
     }
 
     @Test
-    public void testUpdateDriver() {
+    public void DriverService_UpdateDriver_ReturnDriverDTO() {
 
         Long driverId = 1L;
         String fullName = "John Doe";
@@ -124,7 +124,7 @@ public class DriverServiceTests {
     }
 
     @Test
-    public void testUpdateDriver_ThrowsDriverNotFoundException() {
+    public void DriverService_UpdateDriver_ThrowsDriverNotFoundException() {
 
         Long driverId = 1L;
         String fullName = "John Doe";
@@ -139,7 +139,7 @@ public class DriverServiceTests {
     }
 
     @Test
-    public void testGetAllDrivers() {
+    public void DriverService_GetAllDrivers_ReturnPageableResponse() {
 
         int pageNo = 0;
         int pageSize = 10;
@@ -171,7 +171,7 @@ public class DriverServiceTests {
     }
 
     @Test
-    public void testDeleteDriver() {
+    public void DriverService_DeleteDriver_DeletionChecking() {
 
         Long driverId = 1L;
 
@@ -187,7 +187,7 @@ public class DriverServiceTests {
     }
 
     @Test
-    public void testAddFunds() {
+    public void DriverService_AddFunds_ReturnResponseDTO() {
 
         Long driverId = 1L;
         BigDecimal amount = BigDecimal.valueOf(100);
@@ -215,7 +215,7 @@ public class DriverServiceTests {
     }
 
     @Test
-    public void testAddFunds_ThrowsDriverNotFoundException() {
+    public void DriverService_AddFunds_ThrowsDriverNotFoundException() {
 
         Long driverId = 1L;
         BigDecimal amount = BigDecimal.valueOf(100);
@@ -227,7 +227,7 @@ public class DriverServiceTests {
     }
 
     @Test
-    public void testWithdrawFunds() {
+    public void DriverService_WithdrawFunds_ReturnResponseDTO() {
 
         Long driverId = 1L;
         BigDecimal amount = BigDecimal.valueOf(50);
@@ -255,7 +255,7 @@ public class DriverServiceTests {
     }
 
     @Test
-    public void testWithdrawFunds_ThrowsInsufficientAccountFundsException() {
+    public void DriverService_WithdrawFunds_ThrowsInsufficientAccountFundsException() {
 
         Long driverId = 1L;
         BigDecimal amount = BigDecimal.valueOf(100);

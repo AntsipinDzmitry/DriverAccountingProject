@@ -99,7 +99,7 @@ public class DriverRepositoryTests {
     }
 
     @Test
-    public void CitizenRepository_DeleteCitizen_ReturnCitizenIsEmpty() {
+    public void DriverRepository_DeleteDriver_ReturnDriverIsEmpty() {
 
         Driver driver = Driver.builder()
                 .fullName("Oleg")
