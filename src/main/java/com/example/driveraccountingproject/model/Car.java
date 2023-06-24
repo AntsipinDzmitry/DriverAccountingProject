@@ -22,7 +22,7 @@ public class Car {
     private Long id;
     private String vin;
     private String stateNumber;
-    private String ManufacturerName;
+    private String manufacturerName;
     private String brand;
     private int yearOfManufacture;
     @CreationTimestamp

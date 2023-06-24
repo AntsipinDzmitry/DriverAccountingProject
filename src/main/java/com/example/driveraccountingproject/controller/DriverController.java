@@ -1,7 +1,7 @@
 package com.example.driveraccountingproject.controller;
 
 import com.example.driveraccountingproject.dto.DriverDTO;
-import com.example.driveraccountingproject.dto.DriverResponse;
+import com.example.driveraccountingproject.dto.PageableResponse;
 import com.example.driveraccountingproject.service.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +18,7 @@ public class DriverController {
         this.driverService = driverService;
     }
     @GetMapping("drivers")
-    public ResponseEntity<DriverResponse> getAllDrivers(
+    public ResponseEntity<PageableResponse> getAllDrivers(
             @RequestParam(value = "pageNo", defaultValue = "0", required = false) int pageNo,
             @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize,
             @RequestParam(value = "sortBy", defaultValue = "fullName", required = false) String sortBy

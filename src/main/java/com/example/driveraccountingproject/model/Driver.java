@@ -20,7 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Driver implements DriverMapper {
+public class Driver{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -41,13 +41,13 @@ public class Driver implements DriverMapper {
     private List<Car> cars = new ArrayList<>();
 
 
-    @Override
-    public DriverDTO toDTO(Driver driver) {
-        return new DriverDTO();
-    }
-
-    @Override
-    public Driver toEntity(DriverDTO driverDTO) {
-        return null;
-    }
+//    @Override
+//    public DriverDTO toDTO(Driver driver) {
+//        return new DriverDTO();
+//    }
+//
+//    @Override
+//    public Driver toEntity(DriverDTO driverDTO) {
+//        return new Driver();
+//    }
 }

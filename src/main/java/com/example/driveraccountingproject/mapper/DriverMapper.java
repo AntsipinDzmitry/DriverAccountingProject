@@ -2,10 +2,9 @@ package com.example.driveraccountingproject.mapper;
 
 import com.example.driveraccountingproject.dto.DriverDTO;
 import com.example.driveraccountingproject.model.Driver;
-import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
+@Mapper(componentModel = "spring")
 public interface DriverMapper {
 
     DriverDTO toDTO(Driver driver);

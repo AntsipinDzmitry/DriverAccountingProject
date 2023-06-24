@@ -1,10 +1,10 @@
 package com.example.driveraccountingproject.service;
 
-import com.example.driveraccountingproject.model.Part;
+import com.example.driveraccountingproject.dto.PartDTO;
 
 public interface PartService {
-    Part createPart(Part part);
-    Part getPartById(Long id);
-    Part updatePart(Long id);
+    PartDTO createPart(PartDTO partDTO);
+    PartDTO getPartById(Long id);
+    PartDTO updatePart(Long id);
     void deletePart(Long partId);
 }

@@ -1,6 +1,5 @@
 package com.example.driveraccountingproject.dto;
 
-import com.example.driveraccountingproject.model.Driver;
 import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,8 +12,8 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DriverResponse {
-    private List<Driver> content;
+public class PageableResponse {
+    private List<?> content;
     @Min(0)
     private int pageNo;
     @Min(0)

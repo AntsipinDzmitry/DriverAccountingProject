@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class PartDTO {
     private Long id;
+    private Long carId;
     private String serialNumber;
 
     @PastOrPresent

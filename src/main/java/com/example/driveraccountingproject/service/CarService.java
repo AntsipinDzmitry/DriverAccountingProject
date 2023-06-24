@@ -1,14 +1,13 @@
 package com.example.driveraccountingproject.service;
 
-import com.example.driveraccountingproject.model.Car;
-import com.example.driveraccountingproject.model.Driver;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import com.example.driveraccountingproject.dto.CarDTO;
+import com.example.driveraccountingproject.dto.PageableResponse;
 
 public interface CarService {
-    Car createCar(Car car);
-    Car getCarById(Long id);
-    Car updateCar(Car car);
+    CarDTO createCar(CarDTO carDTO);
+    CarDTO getCarById(Long id);
+    CarDTO updateCar(CarDTO carDTO);
     void deleteCar (Long id);
-    Page<Car> getAllCars(Pageable pageable);
+    PageableResponse getAllCars(int pageNo, int pageSize, String sortBy);
+    PageableResponse getAllCarsByDriverId(Long driverId, int pageNo, int pageSize, String sortBy);
 }
