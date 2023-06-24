@@ -45,6 +45,15 @@ public class GlobalExceptionHandler {
 
         return new ResponseEntity<>(errorObject, HttpStatus.NOT_FOUND);
     }
+    @ExceptionHandler(InsufficientAccountFundsException.class)
+    public ResponseEntity<ErrorObject> handlerInsufficientFundsException(InsufficientAccountFundsException ex, WebRequest request) {
+        ErrorObject errorObject = new ErrorObject();
+        errorObject.setStatusCode(HttpStatus.FORBIDDEN.value());
+        errorObject.setMessage(ex.getMessage());
+        errorObject.setTimestamp(LocalDateTime.now());
+
+        return new ResponseEntity<>(errorObject, HttpStatus.FORBIDDEN);
+    }
 
 
     @ResponseBody

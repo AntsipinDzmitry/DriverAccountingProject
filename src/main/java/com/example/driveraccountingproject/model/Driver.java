@@ -40,14 +40,7 @@ public class Driver{
     @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Car> cars = new ArrayList<>();
 
+    @OneToOne(mappedBy = "driver", cascade = CascadeType.ALL, orphanRemoval = true)
+    private DriverAccount account;
 
-//    @Override
-//    public DriverDTO toDTO(Driver driver) {
-//        return new DriverDTO();
-//    }
-//
-//    @Override
-//    public Driver toEntity(DriverDTO driverDTO) {
-//        return new Driver();
-//    }
 }

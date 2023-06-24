@@ -22,6 +22,7 @@ public class DriverDTO {
     private LocalDate dateOfBirth;
     private int experience;
     private double funds;
+    private DriverAccountDTO account;
     @PastOrPresent
     private LocalDateTime created;
     @PastOrPresent
