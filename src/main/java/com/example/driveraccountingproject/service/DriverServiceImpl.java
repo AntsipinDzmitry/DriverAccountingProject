@@ -88,7 +88,6 @@ public class DriverServiceImpl implements DriverService {
         newDriver.setDriverLicenseCategory(driverDTO.getDriverLicenseCategory());
         newDriver.setDateOfBirth(driverDTO.getDateOfBirth());
         newDriver.setExperience(driverDTO.getExperience());
-        newDriver.setFunds(driverDTO.getFunds());
         newDriver.setUpdated(LocalDateTime.now());
         Driver updatedDriver = driverRepository.save(newDriver);
         return driverMapper.toDTO(updatedDriver);

@@ -30,7 +30,6 @@ public class Driver{
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate dateOfBirth;
     private int experience;
-    private double funds;
 
     @CreationTimestamp
     private LocalDateTime created;
