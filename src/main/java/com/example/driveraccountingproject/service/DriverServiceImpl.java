@@ -129,6 +129,10 @@ public class DriverServiceImpl implements DriverService {
         account.setBalance(newBalance);
 
         DriverAccount updatedAccount = driverRepository.save(driver).getAccount();
+        BigDecimal conversionRate = getConversionRate(account.getCurrency(), currency);
+        updatedAccount.setCurrency(currency);
+        updatedAccount.setBalance(updatedAccount.getBalance().multiply(conversionRate));
+
         return accountMapper.toDTO(updatedAccount);
     }
 
@@ -146,6 +150,9 @@ public class DriverServiceImpl implements DriverService {
         account.setBalance(newBalance);
 
         DriverAccount updatedAccount = driverRepository.save(driver).getAccount();
+        BigDecimal conversionRate = getConversionRate(account.getCurrency(), currency);
+        updatedAccount.setCurrency(currency);
+        updatedAccount.setBalance(updatedAccount.getBalance().multiply(conversionRate));
         return accountMapper.toDTO(updatedAccount);
     }
 
