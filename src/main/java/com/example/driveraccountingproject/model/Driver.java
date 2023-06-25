@@ -1,7 +1,5 @@
 package com.example.driveraccountingproject.model;
 
-import com.example.driveraccountingproject.dto.DriverDTO;
-import com.example.driveraccountingproject.mapper.DriverMapper;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,7 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;

@@ -1,7 +1,8 @@
 package com.example.driveraccountingproject.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,14 +15,21 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DriverDTO {
+    @NotNull
     private Long id;
+    @NotBlank
     private String fullName;
+    @NotBlank
     private String passport;
+    @NotBlank
     private String driverLicenseCategory;
     @JsonFormat(pattern = "dd-MM-yyyy")
+    @PastOrPresent
+    @NotNull
     private LocalDate dateOfBirth;
+    @PositiveOrZero
     private int experience;
-    private double funds;
+    @Valid
     private DriverAccountDTO account;
     @PastOrPresent
     private LocalDateTime created;

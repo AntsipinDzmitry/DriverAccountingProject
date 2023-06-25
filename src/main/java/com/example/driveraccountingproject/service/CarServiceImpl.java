@@ -14,6 +14,7 @@ import com.example.driveraccountingproject.model.Part;
 import com.example.driveraccountingproject.repository.CarRepository;
 import com.example.driveraccountingproject.repository.DriverRepository;
 import com.example.driveraccountingproject.repository.PartRepository;
+import jakarta.transaction.Transactional;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -41,7 +42,7 @@ public class CarServiceImpl implements CarService {
         this.driverRepository = driverRepository;
         this.partRepository = partRepository;
     }
-
+    @Transactional
     @Override
     public CarDTO createCar(CarDTO carDTO) {
         Driver driver = driverRepository.findById(carDTO.getDriverId()).orElseThrow(() ->
@@ -58,7 +59,7 @@ public class CarServiceImpl implements CarService {
                 new CarNotFoundException("Car not found"));
         return carMapper.toDTO(car);
     }
-
+    @Transactional
     @Override
     public CarDTO updateCar(CarDTO carDTO) {
         Driver driver = driverRepository.findById(carDTO.getDriverId()).orElseThrow(() ->
@@ -78,7 +79,7 @@ public class CarServiceImpl implements CarService {
         Car updatedCar = carRepository.save(car);
         return carMapper.toDTO(updatedCar);
     }
-
+    @Transactional
     @Override
     public void deleteCar(Long id) {
         Car car = carRepository.findById(id).orElseThrow(() ->
@@ -117,7 +118,7 @@ public class CarServiceImpl implements CarService {
                 .totalNumberOfElements(cars.getNumberOfElements())
                 .isLast(cars.isLast()).build();
     }
-
+    @Transactional
     @Override
     public PartDTO installPart(PartDTO partDTO) {
         Car car = carRepository.findById(partDTO.getCarId()).orElseThrow(() ->
@@ -127,7 +128,7 @@ public class CarServiceImpl implements CarService {
         Part installedPart = partRepository.save(part);
         return partMapper.toDTO(installedPart);
     }
-
+    @Transactional
     @Override
     public PartDTO replacePart(PartDTO partDTO) {
         Car car = carRepository.findById(partDTO.getCarId()).orElseThrow(() ->

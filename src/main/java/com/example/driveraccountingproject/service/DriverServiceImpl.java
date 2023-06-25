@@ -12,6 +12,7 @@ import com.example.driveraccountingproject.model.DriverAccount;
 import com.example.driveraccountingproject.model.fieldenum.Currency;
 import com.example.driveraccountingproject.repository.DriverAccountRepository;
 import com.example.driveraccountingproject.repository.DriverRepository;
+import jakarta.transaction.Transactional;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.mapstruct.factory.Mappers;
@@ -45,7 +46,7 @@ public class DriverServiceImpl implements DriverService {
         this.driverRepository = driverRepository;
         this.driverAccountRepository = driverAccountRepository;
     }
-
+    @Transactional
     @Override
     public DriverDTO createDriver(DriverDTO driverDTO) {
         Driver newDriver = driverRepository.save(driverMapper.toEntity(driverDTO));
@@ -78,7 +79,7 @@ public class DriverServiceImpl implements DriverService {
         LocalDate driverBirthday = LocalDate.of(currentDate.getYear(), driver.getDateOfBirth().getMonth(), driver.getDateOfBirth().getDayOfMonth());
         return currentDate.equals(driverBirthday);
     }
-
+    @Transactional
     @Override
     public DriverDTO updateDriver(DriverDTO driverDTO) {
         Driver newDriver = driverRepository.findById(driverDTO.getId()).orElseThrow(() ->
@@ -110,14 +111,14 @@ public class DriverServiceImpl implements DriverService {
                 .isLast(drivers.isLast())
                 .build();
     }
-
+    @Transactional
     @Override
     public void deleteDriver(Long driverId) {
         Driver driver = driverRepository.findById(driverId).orElseThrow(() ->
                 new DriverNotFoundException("Driver not found"));
         driverRepository.delete(driver);
     }
-
+    @Transactional
     @Override
     public DriverAccountDTO addFunds(Long driverId, BigDecimal amount, Currency currency) {
         Driver driver = driverRepository.findById(driverId)
@@ -135,7 +136,7 @@ public class DriverServiceImpl implements DriverService {
 
         return accountMapper.toDTO(updatedAccount);
     }
-
+    @Transactional
     @Override
     public DriverAccountDTO withdrawFunds(Long driverId, BigDecimal amount, Currency currency) {
         Driver driver = driverRepository.findById(driverId)

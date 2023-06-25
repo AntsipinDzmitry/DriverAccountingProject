@@ -1,6 +1,8 @@
 package com.example.driveraccountingproject.dto;
 
 import com.example.driveraccountingproject.model.fieldenum.Currency;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,6 +15,8 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FundsDTO {
+    @NotNull
     private Currency currency;
+    @PositiveOrZero
     private BigDecimal amount;
 }

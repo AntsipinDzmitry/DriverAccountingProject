@@ -2,7 +2,6 @@ package com.example.driveraccountingproject.controller;
 
 import com.example.driveraccountingproject.dto.CarDTO;
 import com.example.driveraccountingproject.dto.PageableResponse;
-import com.example.driveraccountingproject.dto.PartDTO;
 import com.example.driveraccountingproject.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
