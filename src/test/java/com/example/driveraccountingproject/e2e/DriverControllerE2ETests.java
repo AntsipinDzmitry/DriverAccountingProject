@@ -14,7 +14,7 @@ import java.time.LocalDate;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,properties = "spring.profiles.active=test")
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class DriverControllerE2ETests {
 
     @LocalServerPort
@@ -66,7 +66,7 @@ public class DriverControllerE2ETests {
 
         DriverDTO existingDriver = new DriverDTO();
         existingDriver.setId(1L);
-        existingDriver.setFullName("John Doe");
+        existingDriver.setFullName("User test");
         restTemplate.put(getBaseUrl() + "drivers", existingDriver);
         ResponseEntity<DriverDTO> getResponse = restTemplate.getForEntity(
                 getBaseUrl() + "drivers/{id}", DriverDTO.class, existingDriver.getId());
