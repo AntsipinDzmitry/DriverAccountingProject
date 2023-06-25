@@ -41,7 +41,7 @@ public class DriverIntegrationTests {
     public void init() {
         driverDTO = DriverDTO.builder()
                 .fullName("Bari Alibasov")
-                .passport("AB1234567")
+                .passport("AB1234567" + Math.random())
                 .driverLicenseCategory("E")
                 .experience(34)
                 .dateOfBirth(LocalDate.of(1956, 11, 23))
