@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/drivers")
+@RequestMapping("/api/")
 @Tag(name = "Driver controller", description = "Maintain information about our customers")
 public class DriverController {
     private final DriverService driverService;
@@ -24,7 +24,7 @@ public class DriverController {
         this.driverService = driverService;
     }
 
-    @GetMapping()
+    @GetMapping("drivers")
     @Operation(
             summary = "get all drivers in system",
             description = "All our drivers"
@@ -37,7 +37,7 @@ public class DriverController {
         return new ResponseEntity<>(driverService.getAllDrivers(pageNo, pageSize, sortBy), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("drivers/{id}")
     @Operation(
             summary = "get particular driver by his id",
             description = "Certain driver"
@@ -46,7 +46,7 @@ public class DriverController {
         return ResponseEntity.ok(driverService.getDriverById(id));
     }
 
-    @PostMapping()
+    @PostMapping("drivers")
     @Operation(
             summary = "Adding new customer to our system",
             description = "New member of our team"
@@ -55,7 +55,7 @@ public class DriverController {
         return new ResponseEntity<>(driverService.createDriver(driverDTO), HttpStatus.CREATED);
     }
 
-    @PutMapping()
+    @PutMapping("drivers")
     @Operation(
             summary = "Update certain driver",
             description = "Update certain driver"
@@ -64,7 +64,7 @@ public class DriverController {
         return new ResponseEntity<>(driverService.updateDriver(driverDTO), HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("drivers/{id}")
     @Operation(
             summary = "Delete certain driver",
             description = "Delete certain driver"
@@ -74,7 +74,7 @@ public class DriverController {
         return new ResponseEntity<>("Driver was deleted successfully", HttpStatus.OK);
     }
 
-    @PutMapping("/{driverId}/add")
+    @PutMapping("drivers/{driverId}/add")
     @Operation(
             summary = "Functionality for possibility to add money to customer's account",
             description = "Add money"
@@ -84,7 +84,7 @@ public class DriverController {
                 fundsDTO.getCurrency()), HttpStatus.OK);
     }
 
-    @PutMapping("/{driverId}/withdraw")
+    @PutMapping("drivers/{driverId}/withdraw")
     @Operation(
             summary = "Functionality for possibility to withdraw money to customer's account",
             description = "Withdraw money"
@@ -94,7 +94,7 @@ public class DriverController {
                 fundsDTO.getCurrency()), HttpStatus.OK);
     }
 
-    @GetMapping("/{driverId}/account")
+    @GetMapping("drivers/{driverId}/account")
     @Operation(
             summary = "Check account of particular customer with checking preferable currency",
             description = "Get balance"

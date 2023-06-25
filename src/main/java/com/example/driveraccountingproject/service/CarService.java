@@ -3,15 +3,18 @@ package com.example.driveraccountingproject.service;
 import com.example.driveraccountingproject.dto.CarDTO;
 import com.example.driveraccountingproject.dto.PageableResponse;
 import com.example.driveraccountingproject.dto.PartDTO;
+import jakarta.validation.Valid;
+import org.springframework.validation.annotation.Validated;
 
+@Validated
 public interface CarService {
-    CarDTO createCar(CarDTO carDTO);
-    CarDTO getCarById(Long id);
-    CarDTO updateCar(CarDTO carDTO);
-    void deleteCar (Long id);
-    PageableResponse getAllCars(int pageNo, int pageSize, String sortBy);
-    PageableResponse getAllCarsByDriverId(Long driverId, int pageNo, int pageSize, String sortBy);
-    PartDTO installPart(PartDTO partDTO);
-    PartDTO replacePart(PartDTO partDTO);
-    PageableResponse getAllPartsByCarId(Long carId, int pageNo, int pageSize, String sortBy);
+    CarDTO createCar(@Valid CarDTO carDTO);
+    CarDTO getCarById(@Valid Long id);
+    CarDTO updateCar(@Valid CarDTO carDTO);
+    void deleteCar (@Valid Long id);
+    PageableResponse getAllCars(@Valid int pageNo, @Valid int pageSize, @Valid String sortBy);
+    PageableResponse getAllCarsByDriverId(@Valid Long driverId, @Valid int pageNo, @Valid int pageSize, @Valid String sortBy);
+    PartDTO installPart(@Valid PartDTO partDTO);
+    PartDTO replacePart(@Valid PartDTO partDTO);
+    PageableResponse getAllPartsByCarId(@Valid Long carId, @Valid int pageNo, @Valid int pageSize, @Valid String sortBy);
 }

@@ -9,10 +9,12 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.time.LocalDate;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,properties = "spring.profiles.active=test")
 public class DriverControllerE2ETests {
 
     @LocalServerPort
@@ -41,8 +43,13 @@ public class DriverControllerE2ETests {
     @Test
     public void DriverController_CreateDriver_SuccessfullyCreatesNewDriver() {
 
-        DriverDTO newDriver = new DriverDTO();
-        newDriver.setFullName("John Doe");
+        DriverDTO newDriver = DriverDTO.builder()
+                .fullName("User test")
+                .passport("AB7654321")
+                .driverLicenseCategory("B")
+                .experience(5)
+                .dateOfBirth(LocalDate.of(1986, 11, 23))
+                .build();
 
         ResponseEntity<DriverDTO> response = restTemplate.postForEntity(
                 getBaseUrl() + "drivers", newDriver, DriverDTO.class);

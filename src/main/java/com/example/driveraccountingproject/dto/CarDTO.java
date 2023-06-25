@@ -1,8 +1,6 @@
 package com.example.driveraccountingproject.dto;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CarDTO {
-    @NotNull
+    @Min(0)
     private Long id;
     @NotNull
     private Long driverId;
@@ -24,7 +22,7 @@ public class CarDTO {
     private String stateNumber;
     private String manufacturerName;
     private String brand;
-    @PastOrPresent
+    @Max(2023)
     private int yearOfManufacture;
 
     @PastOrPresent

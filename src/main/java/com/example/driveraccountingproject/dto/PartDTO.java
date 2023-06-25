@@ -1,5 +1,6 @@
 package com.example.driveraccountingproject.dto;
 
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PartDTO {
-    @NotNull
+    @Min(0)
     private Long id;
     @NotNull
     private Long carId;

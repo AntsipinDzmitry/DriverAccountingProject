@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DriverDTO {
-    @NotNull
+    @Min(0)
     private Long id;
     @NotBlank
     private String fullName;

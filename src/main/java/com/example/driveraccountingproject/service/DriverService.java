@@ -4,21 +4,23 @@ import com.example.driveraccountingproject.dto.DriverAccountDTO;
 import com.example.driveraccountingproject.dto.DriverDTO;
 import com.example.driveraccountingproject.dto.PageableResponse;
 import com.example.driveraccountingproject.model.fieldenum.Currency;
+import jakarta.validation.Valid;
+import org.springframework.validation.annotation.Validated;
 
 import java.math.BigDecimal;
-
+@Validated
 public interface DriverService {
-    DriverDTO createDriver(DriverDTO driverDTO);
-    DriverDTO getDriverById(Long id);
-    void congratulateDriverOnBirthday(Long driverId);
-    DriverDTO updateDriver(DriverDTO driverDTO);
-    PageableResponse getAllDrivers(int pageNo, int pageSize, String sortBy);
-    void deleteDriver(Long driverId);
-    DriverAccountDTO addFunds(Long driverId, BigDecimal amount, Currency currency);
-    DriverAccountDTO withdrawFunds(Long driverId, BigDecimal amount, Currency currency);
-    DriverAccountDTO getAccountStatus(Long driverId, Currency currency);
-    BigDecimal convertCurrency(BigDecimal amount, Currency fromCurrency, Currency toCurrency);
-    BigDecimal getConversionRate(Currency fromCurrency, Currency toCurrency);
+    DriverDTO createDriver(@Valid DriverDTO driverDTO);
+    DriverDTO getDriverById(@Valid Long id);
+    void congratulateDriverOnBirthday(@Valid Long driverId);
+    DriverDTO updateDriver(@Valid DriverDTO driverDTO);
+    PageableResponse getAllDrivers(@Valid int pageNo, @Valid int pageSize, @Valid String sortBy);
+    void deleteDriver(@Valid Long driverId);
+    DriverAccountDTO addFunds(@Valid Long driverId, @Valid BigDecimal amount, @Valid Currency currency);
+    DriverAccountDTO withdrawFunds(@Valid Long driverId, @Valid BigDecimal amount, @Valid Currency currency);
+    DriverAccountDTO getAccountStatus(@Valid Long driverId, @Valid Currency currency);
+    BigDecimal convertCurrency(@Valid BigDecimal amount, @Valid Currency fromCurrency, @Valid Currency toCurrency);
+    BigDecimal getConversionRate(@Valid Currency fromCurrency, @Valid Currency toCurrency);
 
 
 }
