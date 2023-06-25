@@ -17,6 +17,10 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(uniqueConstraints =
+        {
+@UniqueConstraint(columnNames = "passport")
+        })
 public class Driver{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +28,7 @@ public class Driver{
     private String fullName;
     private String passport;
     private String driverLicenseCategory;
-    @JsonFormat(pattern = "dd-MM-yyyy")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfBirth;
     private int experience;
 
